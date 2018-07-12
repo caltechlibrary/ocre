@@ -40,7 +40,7 @@ def main(quiet = False, no_color = False, *files):
         for f in files:
             with open(f) as input:
                 print(tabulate(ratings(input.read()),
-                               headers = ['Word', 'Dictionary?', 'Nonsense?']))
+                               headers = ['Word', 'Dictionary?', 'Nostril?']))
     except KeyboardInterrupt:
         msg('Quitting.')
 
@@ -55,7 +55,7 @@ def ratings(text):
         else:
             row = [word,
                    'y' if in_dictionary(word) else 'n',
-                   'y' if nonsense(word) else 'n']
+                   'n' if nonsense(word) else 'y']
         table.append(row)
     return table
 
