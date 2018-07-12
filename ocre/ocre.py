@@ -61,13 +61,15 @@ def ratings(text):
 
 
 def ignore(s):
+    # Min 6 length is the default for Nostril.  Could change that but let's
+    # try this for now.
     return len(s) < 6 or not s.isalpha()
 
 
 def in_dictionary(s):
     if len(s) <= 1:
         return False
-    return (s in DICTIONARY or stem(s) in DICTIONARY)
+    return (s.lower() in DICTIONARY or stem(s.lower()) in DICTIONARY)
 
 
 def stem(s):
